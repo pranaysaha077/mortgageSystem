@@ -1,0 +1,72 @@
+﻿@model MortgageSystem.ViewModel.LoginUser
+
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SignIn</h2>
+
+@using (Html.BeginForm("SignIn", "Officer", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.UserType, new List<SelectListItem> {
+
+                new SelectListItem{ Text="------select------",Value=" "},
+                new SelectListItem{Text="Loan Officer",Value="Loan"},
+                new SelectListItem{ Text="Financial officer",Value="Financial"}
+           }, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+<div>
+    <button type="button" class="btn btn-default">  @Html.ActionLink("Register", "Register", "Officer")</button>
+</div>
+<br />
+
+<div>
+    <button type="button" class="btn btn-default"> @Html.ActionLink("Forget User Id", "ForgetUserId", "Officer")</button>
+</div>
+<br />
+<div>
+    <button type="button" class="btn btn-default"> @Html.ActionLink("Forget Password", "ForgetPassword", "Officer")</button>
+</div>
+

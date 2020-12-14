@@ -1,0 +1,67 @@
+﻿@model MortgageSystem.Models.Emi
+
+@{
+    ViewBag.Title = "PayEmi";
+    Layout = "~/Views/Shared/Customer_layout.cshtml";
+}
+
+<h2>PayEmi</h2>
+
+<div>
+    <h4>Emi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyAmt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyAmt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountToPaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountToPaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutstandingBal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutstandingBal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LDayOfPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LDayOfPayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NDayOfPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NDayOfPayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanNumber)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <button type="button" class="btn btn-default"> @Html.ActionLink("Make A Payment", "Payment", "Customer", new { id = Model.Id }, null)</button>
+</div>

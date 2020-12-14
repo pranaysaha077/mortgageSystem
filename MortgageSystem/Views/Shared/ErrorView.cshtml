@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "ErrorView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String Message = Session["ErrorMessage"].ToString();
+}
+
+
+@if (Message == null)
+{<h3>Error Occurred ! Sorry for the inconvenience caused !!</h3>
+}
+else
+{ <h3>@Message</h3>
+}
+
+<h2>ErrorView</h2>
+

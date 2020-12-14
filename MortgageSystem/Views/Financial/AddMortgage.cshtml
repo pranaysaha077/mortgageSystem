@@ -1,0 +1,73 @@
+﻿@model MortgageSystem.Models.Mortgage
+
+@{
+    ViewBag.Title = "Add Mortgages";
+    Layout = "~/Views/Shared/Finance_layout.cshtml";
+}
+
+<h2>Add Mortgages</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4></h4>
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MortgageItem, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MortgageItem, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MortgageItem, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MortgageValue, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MortgageValue, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MortgageValue, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ValueType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ValueType, new List<SelectListItem> {
+
+             new SelectListItem{ Text="-----Select-------",Value=""},
+            new SelectListItem{ Text="Per gram rate",Value="Per gram rate"},
+            new SelectListItem{ Text="Per Sq feet rate ",Value="Per Sq feet rate "},
+
+
+         }, new { @class = "form-control" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MortgageInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MortgageInterest, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MortgageInterest, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="submit" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+@if(ViewBag.msg==1)
+{
+    <h1>SuccessFul !!!</h1>
+}

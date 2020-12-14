@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MortgageSystem.Models.Mortgage>
+
+@{
+    ViewBag.Title = "Edit Mortgages";
+    Layout = "~/Views/Shared/Finance_layout.cshtml";
+}
+
+<h2>Edit Mortgage</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MortgageItem)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.MortgageValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValueType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MortgageInterest)
+        </th>
+       
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MortgageItem)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.MortgageValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValueType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MortgageInterest)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, null)
+          
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    
+</div>

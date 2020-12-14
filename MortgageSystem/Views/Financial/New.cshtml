@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MortgageSystem.ViewModel.CustomerLoanMortage>
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/Finance_layout.cshtml";
+}
+
+<h2>New Loan Applications</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanNumber)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LName)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+
+        <a href="@Url.Action("ShowAllDetails","Financial", new { LoanNumber = item.LoanNumber })">
+
+            @Html.DisplayFor(modelItem => item.LoanNumber)
+        </a>
+
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LName)
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Amount)
+    </td>
+
+   
+</tr>
+}
+
+</table>

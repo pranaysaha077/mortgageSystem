@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+</script>
+
+
+
+
+
+
+
+<div class=" center-block">
+    <button type="button" class="btn btn-info">@Html.ActionLink("Enter As An Admin", "SignIn", "Admin", null, new { Style = "color:white;" })</button>
+
+    <button type="button" class="btn btn-info">@Html.ActionLink("Enter As A Customer", "SignIn", "Customer", null, new { Style = "color:white;" })</button>
+
+    <button type="button" class="btn btn-info">@Html.ActionLink("Enter As A Officer", "SignIn", "Officer", null, new { Style = "color:white;" })</button>
+</div>
+
+

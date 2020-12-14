@@ -1,0 +1,10 @@
+﻿.content {
+    width: 200px;
+    height: 600px;
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px; /* half width*/
+    margin-top: -300px; /* half height*/
+}

@@ -1,0 +1,27 @@
+﻿@model MortgageSystem.Models.Terms
+
+@{
+    ViewBag.Title = "Terms";
+    Layout = "~/Views/Shared/Finance_layout.cshtml";
+}
+
+<h2>Terms</h2>
+
+<div>
+    <h4>Terms & Conditions</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Term)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Term)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "EditTerms", new { id = Model.Id }) </button> 
+  
+</p>
